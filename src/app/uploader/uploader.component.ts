@@ -36,10 +36,9 @@ export class UploaderComponent {
     else{
       this.cnt=0;
     }
-
   }
 
   deleteInputFile(){
-    this.fileInput.nativeElement.value = null;
+    this.fileInput.nativeElement.value = null;//
   }
 }
