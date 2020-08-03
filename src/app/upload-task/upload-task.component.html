@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="progressDiv" *ngIf="percentage | async as pct">
+        <progress [value]="pct" max="100"></progress>
+        {{ pct | number:'1.2-2' }}%
+        <div *ngIf="snapshot | async as snap">
+          {{ snap.bytesTransferred |fileSize }} of {{ snap.totalBytes |fileSize }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+  <div style="text-align: center;" class="row" *ngIf="snapshot | async as snap">
+
+    <div class="col-md-12">
+      <button class="btn btn-warning" (click)="task.pause()" [disabled]="!isActive(snap)">Pause</button>
+      <span>&nbsp;</span>
+      <button class="btn btn-danger" (click)="onCancel()" [disabled]="!isActive(snap)">Cancel</button>
+      <span>&nbsp;</span>
+      <button class="btn btn-success" (click)="task.resume()" [disabled]="!(snap?.state === 'paused')">Resume</button>
+    </div>
+  </div>
+
+  <div *ngIf="downloadURL" class="row">
+    <div class="col-md-4">
+      <h3>Results:</h3>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div style="text-align: center;" class="col-md-12">
+
+      <div *ngIf="snapshot | async as snap">
+
+        <div class="row">
+          <div class="col-md-12" >
+            <div *ngIf="downloadURL as url">
+              <img  [src]="url">
+              <br>
+              <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
+            </div>
+          </div>
+        </div>
+        <br>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

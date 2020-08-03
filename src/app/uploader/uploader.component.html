@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+      <div class="dropzone"
+           dropzone
+           (hovered)="toggleHover($event)"
+           (dropped)="onDrop($event)"
+           [class.hovering]="isHovering"
+           (click)="openExplorer($event)">
+          <h3>Haim Drop Zone</h3>
+          <p>Drag and Drop a File</p>
+          <div class="row">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4">
+              <input accept="image/png, image/jpeg" #fileInputID type="file" (change)="onDrop($event.target.files)">
+
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+      <h3>Uploads:</h3>
+        <div *ngFor="let file of files">
+        <upload-task (cancelFlag) = "deleteInputFile()" [file]="file"></upload-task>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+
+    </div>
+
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,23 @@
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 30vw;
+  font-weight: 200;
+  height: 300px;
+  border: 2px solid #1100ff;
+  border-radius: 5px;
+  background: white;
+  margin: 10px 0;
+
+  &.hovering {
+      border: 2px dashed #f16624;
+      color: #474747 !important;
+      background-color: rgb(255, 255, 166) !important;
+  }
+
+  .file-label {
+      font-size: 1.2em;
+  }
+}
