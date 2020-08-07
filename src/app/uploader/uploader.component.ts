@@ -8,7 +8,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 export class UploaderComponent {
 
   @ViewChild('fileInputID',{ static: false }) fileInput :ElementRef;
-
+  isFileInputClicked :boolean= true;
   isHovering: boolean;
 
   files: File[] = [];
@@ -22,20 +22,11 @@ export class UploaderComponent {
       this.files.push(files.item(i));
     }
   }
-  cnt:number = 0;
+
   openExplorer($event){
-    this.cnt++;
-    console.log("out"+this.cnt);
-    if(this.cnt < 2){
-      this.fileInput.nativeElement.click();
-    }
-    if(this.cnt==2){
-      $event.stopPropagation();
-      /* this.fileInput.nativeElement.click(); */
-    }
-    else{
-      this.cnt=0;
-    }
+    console.log(this.isFileInputClicked);
+    this.fileInput.nativeElement.click();
+
   }
 
   deleteInputFile(){
