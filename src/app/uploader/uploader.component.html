@@ -32,7 +32,7 @@
 
               </div>
               <div class="col-md-3">
-                <button class="" type="button" (click)="openExplorer($event)">
+                <button *ngIf="!isHovering" type="button" (click)="openExplorer($event)">
                   <span><i class="fa fa-folder-open-o" style="font-size:22px; position: relative; top:2px"></i>&nbsp;Open File</span>
                   <input #fileInputID accept="image/png, image/jpeg" type="file" (click) = "isFileInputClicked = !isFileInputClicked" (change)="onDrop($event.target.files)"  />
                 </button>
