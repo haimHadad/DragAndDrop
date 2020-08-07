@@ -56,18 +56,21 @@ img{
   left: 89%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  color: white;
+  color: black;
   font-size: 25px;
   padding: 1.5px 5px 0px;
   border: none;
   cursor: pointer;
   /* border-radius: 5px; */
   opacity: 0.6;
-
+  text-align: center;;
   font-weight: lighter;
 
 }
 
 .container .closeBtn:hover {
-  color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 1% 2% 0%;
+  background-color: rgb(114, 107, 107);
 }
