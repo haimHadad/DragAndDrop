@@ -44,16 +44,21 @@
     </div>
 
   </div>
-  <div *ngIf="errorAmount" class="row">
+  <div class="row">
     <div class="col-md-4">
 
     </div>
     <div class="col-md-4">
-      <div class="alert alert-dismissible alert-danger">
+      <div *ngIf="errorAmount" class="alert alert-dismissible alert-danger">
         <strong>Too many files...</strong> <br> Please add one file only
+      </div>
+      <div *ngIf="urlLink !== ''" class="alert alert-dismissible alert-success">
+        <strong>Well done!</strong> Your image has been successfully uploaded. <br>
+        <a target="_blank" rel="noopener" [href]="urlLink">Your link is here</a>
       </div>
     </div>
   </div>
+
 
 
   <div class="row">
@@ -63,7 +68,7 @@
     <div class="col-md-4">
       <h3>Uploads:</h3>
         <div *ngFor="let file of files">
-        <upload-task (cancelFlag) = "deleteInputFile()" [file]="file"></upload-task>
+        <upload-task (DownLoadLink)="DownloadLinkReady($event)" (cancelFlag) = "deleteInputFile()" [file]="file"></upload-task>
       </div>
     </div>
 

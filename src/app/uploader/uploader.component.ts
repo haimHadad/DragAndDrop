@@ -11,6 +11,8 @@ export class UploaderComponent {
   isFileInputClicked :boolean= true;
   isHovering: boolean;
   errorAmount:boolean = false;
+  urlLink:string ="";
+
 
   files: File[] = [];
 
@@ -19,6 +21,7 @@ export class UploaderComponent {
   }
 
   onDrop(files: FileList) {
+    this.urlLink = "";
     if(files.length > 1){
       this.errorAmount = true;
       return;
@@ -43,6 +46,11 @@ export class UploaderComponent {
   deleteInputFile(){
     this.errorAmount = false;
     this.files.splice(0,1);
+    this.urlLink = "";
     this.fileInput.nativeElement.value = null;//
+  }
+
+  DownloadLinkReady(url:string){
+    this.urlLink = url;
   }
 }
