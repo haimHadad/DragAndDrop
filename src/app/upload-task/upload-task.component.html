@@ -40,7 +40,11 @@
         <div class="row">
           <div class="col-md-12" >
             <div *ngIf="downloadURL as url">
-              <img  [src]="url">
+              <div class="container">
+                <img  [src]="url">
+                <button (click)="onCancel()" type="button" class="close closeBtn" data-dismiss="alert">&times;</button>
+              </div>
+
               <br>
               <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
             </div>
@@ -58,8 +62,12 @@
 
 
 
-
-
+<!-- <div id="example">
+    <div class="container-fluid" style="direction: rtl;">
+      <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg" alt="Card image cap">
+      <button type="button" class="close closeBtn" data-dismiss="alert">&times;</button>
+    </div>
+  </div> -->
 
 
 
