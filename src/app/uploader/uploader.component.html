@@ -44,6 +44,18 @@
     </div>
 
   </div>
+  <div *ngIf="errorAmount" class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+      <div class="alert alert-dismissible alert-danger">
+        <strong>Too many files...</strong> <br> Please add one file only
+      </div>
+    </div>
+  </div>
+
+
   <div class="row">
     <div class="col-md-4">
 
